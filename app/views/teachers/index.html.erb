@@ -12,7 +12,6 @@
   <tbody>
 
   <tr><%= link_to 'Order by name', teachers_path(:order_by => 'name') %></tr>
-  <tr><%= link_to 'Order by subjects', teachers_path(:order_by => 'subj') %></tr>
     <% @teachers.each do |teacher| %>
       <tr id="teacher_<%= teacher.id %>">
           <td> <%= teacher.name %></td>
