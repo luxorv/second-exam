@@ -1,0 +1,31 @@
+<h1>Listing teachers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Identity</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+  <tr><%= link_to 'Order by name', teachers_path(:order_by => 'name') %></tr>
+  <tr><%= link_to 'Order by subjects', teachers_path(:order_by => 'subj') %></tr>
+    <% @teachers.each do |teacher| %>
+      <tr id="teacher_<%= teacher.id %>">
+          <td> <%= teacher.name %></td>
+        <td><%= teacher.identity %></td>
+        <td><%= teacher.subjects.size %></td>
+        <td><%= link_to 'Show', teacher %></td>
+        <td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>
+        <td><%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Teacher', new_teacher_path %>
